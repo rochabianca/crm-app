@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="any">
+  <ul v-if="any" style="padding: 0">
     <Item v-for="item in items" :key="item.id" :class="type">
       {{ item[itemKey] }}
     </Item>

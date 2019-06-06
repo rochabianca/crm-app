@@ -1,12 +1,13 @@
 <template>
   <div id="sidebar" class="flex-1">
     Render Contacts
-    <list :items="contacts" itemKey="name" type="contact" />
+    <list :items="contacts.all()" itemKey="name" type="contact" />
   </div>
 </template>
 
 <script>
 import List from "@/components/general/List";
+import Model from "@codeship/modelist";
 
 export default {
   name: "Sidebar",
@@ -15,16 +16,18 @@ export default {
   },
   data() {
     return {
-      contacts: [
-        {
-          name: "Jane Doe",
-          id: 1
-        },
-        {
-          name: "John Doe",
-          id: 2
-        }
-      ]
+      contacts: new Model({
+        data: [
+          {
+            name: "Jane Doe",
+            id: 1
+          },
+          {
+            name: "John Doe",
+            id: 2
+          }
+        ]
+      })
     };
   }
 };
