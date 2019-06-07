@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import New from "@/components/contact/New.vue";
+import Show from "@/components/contact/Show.vue";
 
 Vue.use(Router);
 
@@ -10,17 +11,13 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "form",
+      component: New
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/contact/:id",
+      name: "contact",
+      component: Show
     }
   ]
 });
