@@ -57,6 +57,18 @@
             <a :href="links[key]" target="_blank"> {{ src.value }} </a>
           </div>
         </template>
+
+        <div class="input-block">
+          <label for="tags" class="input-label"
+            >Custom tags <em>Separate by comma</em></label
+          >
+          <input type="text" v-model="availableTags" class="input" />
+        </div>
+        <div class="tags">
+          <span class="tag" v-for="tag in availableTags" :key="tag">
+            {{ tag }}
+          </span>
+        </div>
       </div>
     </div>
     <button type="submit" class="btn">{{ submitButtonText }}</button>
@@ -101,6 +113,14 @@ export default {
         phone: `tel:${this.contact.main.phone.value}`,
         twitter: `https://twitter.com/${this.contact.main.twitter.value}`
       };
+    },
+    availableTags: {
+      get() {
+        return this.tags.length === 0 ? [] : this.tags.split(",");
+      },
+      set(value) {
+        this.tags = value;
+      }
     }
   },
   methods: {
