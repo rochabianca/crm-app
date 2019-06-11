@@ -45,7 +45,17 @@
       </div>
       <div class="flex-1 pl-2">
         <template v-for="(src, key) in contact.main">
-          <div class="input-block" :key="key"></div>
+          <div class="input-block" :key="key">
+            <label :for="`contact.${key}`">{{ src.placeholder }}</label>
+            <input
+              type="text"
+              v-model="src.value"
+              class="input"
+              :placeholder="src.placeholder"
+              :id="`contact.${key}`"
+            />
+            <a :href="links[key]" target="_blank"> {{ src.value }} </a>
+          </div>
         </template>
       </div>
     </div>
@@ -83,6 +93,15 @@ export default {
   },
   props: {
     submitButtonText: String
+  },
+  computed: {
+    links() {
+      return {
+        mail: `mailto:${this.contact.main.mail.value}`,
+        phone: `tel:${this.contact.main.phone.value}`,
+        twitter: `https://twitter.com/${this.contact.main.twitter.value}`
+      };
+    }
   },
   methods: {
     submit() {
