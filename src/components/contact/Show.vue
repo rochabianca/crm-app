@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Show Contact</h1>
-    {{ userId }}
+    {{ contact }}
     <!-- <Form submitButtonText="TEXT" @submit="submit"/> -->
   </div>
 </template>
@@ -19,7 +19,11 @@ export default {
       userId: this.$route.params.id
     };
   },
-  computed: {},
+  computed: {
+    contact() {
+      return this.$root.contacts.find(this.userId).fold();
+    }
+  },
   methods: {
     submit(data) {
       console.log(data);

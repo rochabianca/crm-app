@@ -19,6 +19,7 @@ export default {
   computed: {},
   methods: {
     submit(data) {
+      this.$root.contacts.record(data);
       console.log(data);
     }
   }

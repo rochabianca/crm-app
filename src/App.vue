@@ -7,7 +7,6 @@
 <script>
 import AppContent from "@/components/AppContent.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import Model from "@codeship/modelist";
 
 export default {
   name: "App",
@@ -16,19 +15,12 @@ export default {
     Sidebar
   },
   data() {
-    return {
-      contacts: new Model({
-        setPrimaryKey: true,
-        data: [
-          {
-            name: "Jane Doe"
-          },
-          {
-            name: "John Doe"
-          }
-        ]
-      })
-    };
+    return {};
+  },
+  computed: {
+    contacts() {
+      return this.$root.contacts;
+    }
   }
 };
 </script>
