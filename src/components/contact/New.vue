@@ -19,7 +19,7 @@ export default {
   computed: {},
   methods: {
     submit(data) {
-      this.$root.contacts.record(data);
+      this.$store.dispatch("addContact", data);
       console.log(data);
     }
   }

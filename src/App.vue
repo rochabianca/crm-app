@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     contacts() {
-      return this.$root.contacts;
+      return this.$store.state.contacts;
     }
   }
 };
