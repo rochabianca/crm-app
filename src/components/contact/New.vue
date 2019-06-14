@@ -7,6 +7,7 @@
 
 <script>
 import Form from "./Form";
+import { mapActions } from "vuex";
 
 export default {
   name: "New",
@@ -18,9 +19,11 @@ export default {
   },
   computed: {},
   methods: {
+    ...mapActions(["addContact"]),
     submit(data) {
-      this.$store.dispatch("addContact", data);
-      console.log(data);
+      this.addContact(data);
+      // this.$store.dispatch("addContact", data);
+      // console.log(data);
     }
   }
 };

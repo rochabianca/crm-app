@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <sidebar :contacts="contacts.all()" />
+    <sidebar />
     <app-content />
   </div>
 </template>
@@ -16,11 +16,6 @@ export default {
   },
   data() {
     return {};
-  },
-  computed: {
-    contacts() {
-      return this.$store.state.contacts;
-    }
   }
 };
 </script>
