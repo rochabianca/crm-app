@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     contact() {
-      return this.$root.contacts.find(this.userId).fold();
+      return this.$store.state.contacts.find(this.userId).fold();
     }
   },
   methods: {
