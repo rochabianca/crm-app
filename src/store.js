@@ -3,9 +3,7 @@ import Vuex from "vuex";
 import { collections } from "@/lib/firebase";
 import Model from "@codeship/modelist";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export const structure = {
   state: {
     contacts: new Model({})
   },
@@ -47,4 +45,6 @@ export default new Vuex.Store({
       });
     }
   ]
-});
+};
+Vue.use(Vuex);
+export default () => new Vuex.Store({ ...structure });
